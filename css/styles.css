@@ -43,8 +43,8 @@
 }
 
 .home-header button img {
-    width: 40px;
-    height: 40px;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 /* Main content styling */
@@ -84,8 +84,8 @@
 }
 
 .home-footer button img {
-    width: 40px;
-    height: 40px;
+    width: 2.5em;
+    height: 2.5em;
     margin-bottom: 5px;
 }
 
@@ -101,12 +101,12 @@
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .home-header nav ul {
-        flex-direction: column;
+        /*flex-direction: column;*/
         gap: 10px;
     }
 
     .home-footer {
-        flex-direction: column;
+        /*flex-direction: column;*/
     }
 
     .home-footer button {
