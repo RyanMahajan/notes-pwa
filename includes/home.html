@@ -6,13 +6,15 @@
                 <li>Notes</li>
             </ul>
         </nav>
-        <p>Date</p>
-        <button>
-            <img src="./assets/images/edit.svg" alt="Edit"/>
-        </button>
+        <div>
+	    <p>Date</p>
+            <button>
+                <img src="./assets/images/edit.svg" alt="Edit"/>
+            </button>
+	</div>
     </header>
     <main class="home-main">
-        <p>Markdown Container</p>
+        <div class="markdown-body" id="markdown"></div>
     </main>
     <footer class="home-footer">
         <button>
@@ -36,5 +38,13 @@
             Settings
         </button>
     </footer>
+    <script>
+	fetch('note.html')
+     	    .then(response => response.text())
+	    .then(data => {
+		document.getElementById('markdown').innerHTML = data;
+	})
+	.catch(error => console.error("Error loading data:", error));
+    </script>
 </div>
 

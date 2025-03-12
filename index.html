@@ -7,20 +7,62 @@
 		<title>Ryan Notes</title>
 		<link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="./css/styles.css">
-		<link rel="stylesheet" href="./css/github-markdown.css">
+		<link rel="stylesheet" href="./css/home.css">
+		<link rel="stylesheet" href="./css/github-markdown-light.css">
 	</head>
 	<body>
 		<main>
-			<!-- <div class="markdown-body" id="content"></div> -->
-			<div id="content"/>
+<div class="home-container">
+    <header class="home-header">
+        <nav>
+            <ul>
+                <li>Schedule</li>
+                <li>Notes</li>
+            </ul>
+        </nav>
+        <div>
+	    <p>Date</p>
+            <button>
+                <img src="./assets/images/edit.svg" alt="Edit"/>
+            </button>
+	</div>
+    </header>
+    <main class="home-main">
+        <div class="markdown-body" id="markdown"></div>
+    </main>
+    <footer class="home-footer">
+        <button>
+            <img src="./assets/images/calendar.svg" alt="Calendar"/>
+            Calendar
+        </button>
+        <button>
+            <img src="./assets/images/note.svg" alt="Notes"/>
+            Notes
+        </button>
+        <button>
+            <img src="./assets/images/add.svg" alt="Add"/>
+            Add
+        </button>
+        <button>
+            <img src="./assets/images/diary.svg" alt="Diary"/>
+            Diary
+        </button>
+        <button>
+            <img src="./assets/images/settings.svg" alt="Settings"/>
+            Settings
+        </button>
+    </footer>
+    <script>
+	fetch('./includes/note.html')
+     	    .then(response => response.text())
+	    .then(data => {
+		document.getElementById('markdown').innerHTML = data;
+	})
+	.catch(error => console.error("Error loading data:", error));
+    </script>
+</div>
+
+
 		</main>
-		<script>
-			fetch('home.html')
-				.then(response => response.text())
-				.then(data => {
-					document.getElementById('content').innerHTML = data;
-				})
-				.catch(error => console.error("Error loading data:", error));
-		</script>
 	</body>
 </html>

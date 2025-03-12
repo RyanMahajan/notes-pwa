@@ -1,0 +1,112 @@
+/* General Layout for .home-container */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header styling */
+.home-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #000;
+    font-size: 1.2rem;
+    background-color: var(--primary-color);
+}
+
+.home-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    margin-left: 8px;
+}
+
+/*https://www.30secondsofcode.org/css/s/hover-underline-animation/*/
+.home-header nav ul li {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.home-header nav ul li::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary-color);
+  transform-origin: bottom right;
+  transition: transform 0.20s ease-out;
+}
+
+.home-header nav ul li:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.home-header div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.home-header p {
+    margin: 0;
+}
+
+.home-header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.home-header button img {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+/* Main content styling */
+.home-main {
+    flex-grow: 1;
+    display: flex;
+    padding: 16px;
+}
+
+.home-main div {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Footer styling */
+.home-footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--primary-color);
+}
+
+.home-footer button {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    cursor: pointer;
+}
+
+.home-footer button img {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.home-footer button:hover {
+    background-color: #444;
+    border-radius: 5px;
+}
+
