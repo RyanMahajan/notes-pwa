@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button id="toggle-btn">Edit</button>
+        <div id="preview"></div>
+        <textarea id="editor" style="display: none;"></textarea>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggle-btn');
+        const preview = document.getElementById('preview');
+        const editor = document.getElementById('editor');
+
+        let isEditing = false;
+        let markdownText = "# Welcome to your notes!\n\nClick 'Edit' to modify this text.";
+
+        function renderMarkdown() {
+            preview.innerHTML = marked.parse(markdownText);
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            isEditing = !isEditing;
+            
+            if (isEditing) {
+                toggleBtn.textContent = 'Save';
+                editor.style.display = 'block';
+                preview.style.display = 'none';
+                editor.value = markdownText;
+            } else {
+                toggleBtn.textContent = 'Edit';
+                editor.style.display = 'none';
+                preview.style.display = 'block';
+                markdownText = editor.value;
+                renderMarkdown();
+                
+                const blob = new Blob([markdownText], { type: 'text/plain' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'notes.md';
+                a.click();
+            }
+        });
+
+        renderMarkdown();
+    </script>
+</body>
+</html>

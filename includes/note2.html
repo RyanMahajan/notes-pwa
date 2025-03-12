@@ -1,0 +1,51 @@
+<h1>CSC460 Test 2</h1>
+<hr />
+<h3>Chapter 5</h3>
+<ul>
+<li>CPU Schedule Table (no round robin no ljf)</li>
+<li>CPU Burst? (cycle of io and cpu operations in process)</li>
+<li>Process State Diagram? (process graph)</li>
+</ul>
+<h3>Chapter 6</h3>
+<ul>
+<li>Mutex, Critical Sections, Synchronization</li>
+<li>lost update (when data is lossed due to asynch)</li>
+<li>race condition?</li>
+<li>shmem</li>
+<li>TSL (test set lock) single computer instruction prevents interupt issues in critical section</li>
+<li>semaphores p() and v()
+<code>p()
+if(s&gt;0): 
+    s-- 
+else:
+    block on s</code></li>
+</ul>
+<h3>Chapter 7</h3>
+<p>Product Consumer</p>
+<h4>Producer</h4>
+<p><code>P(empty) // let n process through
+    p(mutex) // let only one of those processess in
+        critical section
+    v(mutex)
+v(full)</code></p>
+<h4>Consumer</h4>
+<p><code>consumer code</code></p>
+<h4><a href="https://docs.google.com/document/d/1KAnh4p8yC8VbXPq4awl9Di0G7TeyCwbTEbZSh01MGl8/edit?tab=t.0#heading=h.exqclaoen5qy">Reader Writer</a></h4>
+<p>/
+ /
+ \</p>
+<hr />
+<h1>Testing MD Syntax</h1>
+<ul>
+<li>[x] task 1</li>
+<li>[x] task 2</li>
+</ul>
+<p>| Syntax    | Description |
+| ------    | ----------- |
+| Header    | Title       |
+| Paragraph | Text        |</p>
+<p><code>{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}</code></p>
