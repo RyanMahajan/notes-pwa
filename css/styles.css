@@ -1,7 +1,9 @@
 :root {
-    --primary-color: #F8F3D9;
-    --secondary-color: #EBE5C2;
+    --primary-color: #EFE9D5;
+    --secondary-color: #27445D;
+    --tertiary-color: #71BBB2;
     --font-family: 'Arial', sans-serif;
+    --header-height: 50px;
 }
 
 body {
