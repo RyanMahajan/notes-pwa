@@ -5,64 +5,86 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title>Ryan Notes</title>
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 		<link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="./css/styles.css">
 		<link rel="stylesheet" href="./css/home.css">
 		<link rel="stylesheet" href="./css/github-markdown-light.css">
 	</head>
 	<body>
-		<main>
-<div class="home-container">
-    <header class="home-header">
-        <nav>
-            <ul>
-                <li>Schedule</li>
-                <li>Notes</li>
-            </ul>
-        </nav>
-        <div>
-	    <p>Date</p>
-            <button>
-                <img src="./assets/images/edit.svg" alt="Edit"/>
-            </button>
-	</div>
-    </header>
-    <main class="home-main">
-        <div class="markdown-body" id="markdown"></div>
-    </main>
-    <footer class="home-footer">
-        <button>
-            <img src="./assets/images/calendar.svg" alt="Calendar"/>
-            Calendar
-        </button>
-        <button>
-            <img src="./assets/images/note.svg" alt="Notes"/>
-            Notes
-        </button>
-        <button>
-            <img src="./assets/images/add.svg" alt="Add"/>
-            Add
-        </button>
-        <button>
-            <img src="./assets/images/diary.svg" alt="Diary"/>
-            Diary
-        </button>
-        <button>
-            <img src="./assets/images/settings.svg" alt="Settings"/>
-            Settings
-        </button>
-    </footer>
-    <script>
-	fetch('./includes/note2.html')
-     	    .then(response => response.text())
-	    .then(data => {
-		document.getElementById('markdown').innerHTML = data;
-	})
-	.catch(error => console.error("Error loading data:", error));
-    </script>
-</div>
+	<main>
+		<div class="home-container">
+			<header class="home-header">
+				<nav>
+					<ul>
+						<li>Schedule</li>
+						<li>Notes</li>
+					</ul>
+				</nav>
+				<div>
+					<p>Date</p>
+					<button id="edit-btn">
+						<img src="./assets/images/edit.svg" alt="Edit"/>
+					</button>
+				</div>
+			</header>
+			<main class="home-main">
+				<div class="markdown-body" id="markdown"></div>
+				<textarea id="editor"></textarea>
+			</main>
+			<footer class="home-footer">
+				<button>
+					<img src="./assets/images/calendar.svg" alt="Calendar"/>
+					Calendar
+				</button>
+				<button>
+					<img src="./assets/images/note.svg" alt="Notes"/>
+					Notes
+				</button>
+				<button>
+					<img src="./assets/images/add.svg" alt="Add"/>
+					Add
+				</button>
+				<button>
+					<img src="./assets/images/diary.svg" alt="Diary"/>
+					Diary
+				</button>
+				<button>
+					<img src="./assets/images/settings.svg" alt="Settings"/>
+					Settings
+				</button>
+			</footer>
+			<script>
+				const editBtn = document.getElementById('edit-btn');
+				const markView = document.getElementById('markdown');
+				const editor = document.getElementById('editor');
 
+				let isEditing = false;
+				let markdownText = "";
+				
+				function renderMarkdown(){
+					markView.innerHTML = marked.parse(markdownText);
+				}
 
-		</main>
+				editBtn.addEventListener('click', () => {
+					isEditing = !isEditing;
+					
+					if(isEditing){
+						editor.style.display = 'block';
+						markView.style.display = 'none';
+						editor.value = markdownText;
+					}
+					else{
+						editor.style.display = 'none';
+						markView.style.display = 'block';
+						markdownText = editor.value;
+						renderMarkdown();
+					}
+				});
+
+				renderMarkdown();
+			</script>
+		</div>
+	</main>
 	</body>
 </html>

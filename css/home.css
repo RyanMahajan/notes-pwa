@@ -75,12 +75,19 @@
 /* Main content styling */
 .home-main {
     display: flex;
+    flex: 1;
     padding: 16px;
 }
 
 .home-main div {
     font-size: 1.5rem;
     color: #333;
+}
+
+.home-main textarea {
+    display: none;
+    flex: 1;
+    font-size: 1.5rem;
 }
 
 /* Footer styling */
