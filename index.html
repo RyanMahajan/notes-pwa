@@ -22,7 +22,7 @@
 					</ul>
 				</nav>
 				<div>
-					<p>9/11</p>
+					<p id="date"></p>
 					<button id="edit-btn">
 						<img src="./assets/images/edit.svg" alt="Edit"/>
 					</button>
@@ -54,36 +54,8 @@
 					Settings
 				</button>
 			</footer>
-			<script>
-				const editBtn = document.getElementById('edit-btn');
-				const markView = document.getElementById('markdown');
-				const editor = document.getElementById('editor');
-
-				let isEditing = false;
-				let markdownText = "";
-				
-				function renderMarkdown(){
-					markView.innerHTML = marked.parse(markdownText);
-				}
-
-				editBtn.addEventListener('click', () => {
-					isEditing = !isEditing;
-					
-					if(isEditing){
-						editor.style.display = 'block';
-						markView.style.display = 'none';
-						editor.value = markdownText;
-					}
-					else{
-						editor.style.display = 'none';
-						markView.style.display = 'block';
-						markdownText = editor.value;
-						renderMarkdown();
-					}
-				});
-
-				renderMarkdown();
-			</script>
+			<script src="./js/edit.js"></script>
+			<script src="./js/date.js"></script>
 		</div>
 	</main>
 	</body>
